@@ -3,12 +3,12 @@
 $arrayOfWords = ["apple", "banana", "cherry", "date", "elderberry"];
 $character = 'a';
 
-function allWordsContainChar ($arrayOfWords, $character) {
+function allWordsContainChar(array $arrayOfWords, string $character) :bool {
 
-   for ($i = 0; $i < count($arrayOfWords); $i++){
-    if (!str_contains($arrayOfWords[$i], $character)){
-        return false;
-    } 
+    foreach ($arrayOfWords as $word) {
+        if (!str_contains($word, $character)){
+            return false;
+        } 
    }
 
 return true;

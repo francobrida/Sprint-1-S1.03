@@ -7,9 +7,10 @@ $studentsQualifications = [
     "Marta" => [10, 9, 8, 9, 10],
     "Sofia" => [5, 6, 7, 0, 6]
 ];
-$averages = studentAverage($studentsQualifications);
 
-function studentAverage($studentsQualifications) {
+$averages = calculateStudentsAverage($studentsQualifications);
+
+function calculateStudentsAverage(array $studentsQualifications) : array {
     $averages = [];
     foreach ($studentsQualifications as $student => $qualifications) {
         $averages[$student] = calculateAverage($qualifications);
@@ -17,11 +18,14 @@ function studentAverage($studentsQualifications) {
     return $averages;
 }
 
-echo "Student Averages: $averages \n";
+// Show results
+echo "Student Averages:<br>";
+foreach ($averages as $student => $average) {
+    echo "$student: $average<br>";
+}
 
-function calculateAverage($qualifications) {
-    $total = array_sum($qualifications);
-    return $total / count($qualifications);
+function calculateAverage(array $qualifications) : float {
+    return array_sum($qualifications) / count($qualifications);
 }
 
 ?>

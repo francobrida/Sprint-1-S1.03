@@ -5,7 +5,6 @@ $personalInfo = [
     "Age" => "33",
     "Email" => "francobrida@gmail.com",
     "Favorite food" => "Pizza"
-
 ];
 
 ?>

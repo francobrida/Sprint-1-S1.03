@@ -2,29 +2,28 @@
 
 $guestList1 = ["Alice", "Bob", "Charlie", "Mark", "Ethan"];
 $guestList2 = ["Diana", "Ethan", "Fiona", "Bob", "Peter"];
-$guestListInCommon = guestsInCommon($guestList1, $guestList2);
-$exclusivesInList1 = exclusiveGuests($guestList1, $guestListInCommon);
-$exclusivesInList2 = exclusiveGuests($guestList2, $guestListInCommon);
 
-function guestsInCommon ($guestList1, $guestList2) {
+$commonGuests = getCommonGuests($guestList1, $guestList2);
+$exclusiveGuestsList1 = getExclusiveGuests($guestList1, $commonGuests);
+$exclusiveGuestsList2 = getExclusiveGuests($guestList2, $commonGuests);
 
-    $guestListInCommon = array_intersect($guestList1, $guestList2);
+function getCommonGuests(array $list1, array $list2): array {
+
+    $guestListInCommon = array_intersect($list1, $list2);
     return $guestListInCommon;
 }
 
-function allGuests ($guestList1, $guestList2){
-    $fullGuestList = array_merge($guestList1, $guestList2);
+function getAllGuests(array $list1, array $list2): array {
+    $fullGuestList = array_merge($list1, $list2);
     $withoutDuplicates = array_unique($fullGuestList);
 
     return $withoutDuplicates;
 }
 
-function exclusiveGuests ($guestList, $guestListInCommon){
+function getExclusiveGuests(array $list, array $commonGuests): array {
 
-    $guestExclusives = array_diff($guestList, $guestListInCommon);
+    $guestExclusives = array_diff($list, $commonGuests);
     return $guestExclusives;
 }
-
-
 
 ?>
