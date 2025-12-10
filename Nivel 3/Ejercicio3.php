@@ -1,10 +1,10 @@
 <?php
 
-$arrayNumbers = [3, 5, 2, 8, 1, 4];
-$arraySumOfPrimes = array_reduce($arrayNumbers,'sumOnlyPrimes', 0);
+$arrayNumbers = [3, 5, 2, 8, 17, 4];
 
-function sumOnlyPrimes(int $acum, int $number) : int{
-       if ($number <= 1) return $acum;
+function sumOnlyPrimes(int $acum, int $number) : int {
+    
+    if ($number <= 1) return $acum;
 
     for ($i = 2; $i <= sqrt($number); $i++) {
         if ($number % $i == 0) return $acum;
@@ -12,6 +12,9 @@ function sumOnlyPrimes(int $acum, int $number) : int{
 
     return $acum + $number;
 }
-echo "Sum of primes: $sumOfPrimes";
+
+$arraySumOfPrimes = array_reduce($arrayNumbers,'sumOnlyPrimes', 0);
+
+echo "Sum of primes: $arraySumOfPrimes";
 
 ?>
