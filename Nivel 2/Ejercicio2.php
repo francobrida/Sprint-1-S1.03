@@ -18,14 +18,20 @@ function calculateStudentsAverage(array $studentsQualifications) : array {
     return $averages;
 }
 
+function calculateAverage(array $qualifications) : float {
+    return array_sum($qualifications) / count($qualifications);
+}
+
+function calculateClassAverage(array $averages) : float {
+    return array_sum($averages) / count($averages);
+}
+
 // Show results
-echo "Student Averages:<br>";
+echo "Students Averages:<br>";
 foreach ($averages as $student => $average) {
     echo "$student: $average<br>";
 }
 
-function calculateAverage(array $qualifications) : float {
-    return array_sum($qualifications) / count($qualifications);
-}
+echo "Total Class Average: " . calculateClassAverage($averages) . "<br>";
 
 ?>
